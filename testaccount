@@ -1,0 +1,15 @@
+#!/bin/bash
+name=$(cat account.txt | cut -d':' -f1) 
+
+for n in $name 
+ do
+   cat /etc/passwd | grep $n &>/dev/null
+   [ "$?" "0" ] && echo "$n is already existing" && continue 
+   password=$(cat account.txt | grep $n I cut -d':' -f2) 
+   echo -e "$(password}\n${password}" | sudo adduser -h /home/$n -s /bin/bash $n 
+   hdfs dfs -ls /user I grep $u &>/dev/null 
+   [ "$?" == "0" ] && echo "$u exist in hdfs" && continue 
+   hdfs dfs -mkdir -p /user/$u 
+   hdfs dfs -chown $u:$u /user/$u 
+   [ "$?": == "0" ] && echo "$u created and permission changed 
+ done 
